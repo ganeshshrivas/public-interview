@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Questions</h1>
+
+<div>
+    <% @questions.each do |question| %>
+      <div class="question"> 
+        <h2><%= link_to(question) do %>
+            <%= question.title %></h2>
+        <% end %>
+      </div>
+    <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Question', new_question_path %>
