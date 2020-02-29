@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= button_to 'Follow User', questions_path, style: 'float:right; margin-right: 50px' %>
+<% unless current_user == @user %>
+  <div id="follow_form">
+    <% if current_user.following?(@user) %>
+      <%= render 'users/unfollow' %>
+    <% else %>
+      <%= render 'users/follow' %>
+    <% end %>
+  </div>
+<% end %>
+
 
 <%= button_to 'Follow Topic', questions_path, style: 'float:right; margin-right: 50px' %>
 
