@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<%= button_to 'Follow User', questions_path, style: 'float:right; margin-right: 50px' %>
+
+<%= button_to 'Follow Topic', questions_path, style: 'float:right; margin-right: 50px' %>
+
+<%= link_to 'Back', questions_path %>
+
+
 <div><h1>  <%= @question.title %></h1></div>
 
 <br>

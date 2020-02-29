@@ -10,11 +10,12 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @answer = @question.answers.new
   end
 
   # GET /questions/new
   def new
-    @question = Question.new
+    @question = current_user.questions.new
   end
 
   # # GET /questions/1/edit
@@ -24,7 +25,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
 
     respond_to do |format|
       if @question.save
@@ -69,6 +70,6 @@ class QuestionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def question_params
-      params.require(:question).permit(:title)
+      params.require(:question).permit(:title, :user_id)
     end
 end
